@@ -58,7 +58,7 @@ def oobinnerSVG():
     return Circle(cx=15, cy=70, r=random.randint(1,10), fill="red")
 
 def mk_oob_innerSVG_button(count: int):
-    return Button(id="oob-innerSVG-button" + str(count),hx_ext="svg-ext", hx_swap="outerHTML", hx_target="#oob-innerSVG-button" + str(count), hx_get="/oob/innerSVG/" + str(count))("innerSVG-oob: " + str(count) + " clicks")
+    return Button(id="oob-innerSVG-button",hx_ext="svg-ext", hx_swap="outerHTML", hx_target="#oob-innerSVG-button" , hx_get=f"/oob/innerSVG/{count}")(f"innerSVG-oob: {count} clicks")
 @rt("/oob/innerSVG/{count}")
 def get(count: int):
     return mk_oob_innerSVG_button(count+1),oobinnerSVG()(hx_ext="svg-ext", hx_target="#ex-innerSVG-oob",hx_swap_oob="innerSVG:#ex-innerSVG-oob")
