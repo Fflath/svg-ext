@@ -64,11 +64,13 @@
                 target.appendChild(newSVGContainer)
                 break;
             case "afterendSVG":
-                target.parentNode.append(newSVGContainer)
+                target.parentNode.insertAfter(newSVGContainer,target)
                 break;
             case "deleteSVG":
                 target.remove()
                 break;
+            default:
+                return false
             }
             htmx.process(document.body)
             return true
