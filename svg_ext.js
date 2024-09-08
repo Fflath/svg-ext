@@ -64,7 +64,7 @@
                 target.appendChild(newSVGContainer)
                 break;
             case "afterendSVG":
-                target.parentNode.insertAfter(newSVGContainer,target)
+                target.parentNode.insertBefore(newSVGContainer, target.nextSibling);
                 break;
             case "deleteSVG":
                 target.remove()
